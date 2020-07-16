@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@mipmap/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_aboutus"
+            android:icon="@mipmap/about"
+            android:title="About Us" />
+        <item
+            android:id="@+id/nav_activities"
+            android:icon="@mipmap/activities"
+            android:title="Activities" />
+        <item
+            android:id="@+id/nav_matrimonial"
+            android:icon="@mipmap/matrimonial"
+            android:title="Matrimonial" />
+        <item
+            android:id="@+id/nav_jobs"
+            android:icon="@mipmap/jobs"
+            android:title="Jobs" />
+        <item
+            android:id="@+id/nav_bulletin"
+            android:icon="@mipmap/bulletins"
+            android:title="Bulletin" />
+        <item
+            android:id="@+id/nav_downloads"
+            android:icon="@mipmap/downloads"
+            android:title="Downloads" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@mipmap/gallery"
+            android:title="Gallery" />
+        <item
+            android:id="@+id/nav_donate"
+            android:icon="@mipmap/donate"
+            android:title="Donate" />
+        <item
+            android:id="@+id/nav_contactus"
+            android:icon="@mipmap/contact"
+            android:title="Contact Us" />
+    </group>
+<!--
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/menu_share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_send" />
+        </menu>
+    </item>
+-->
+</menu>

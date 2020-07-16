@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DarjiFamilyApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="nav_header_title">શ્રી છોંતેર ગોળ દરજી કેળવણી મંડળ</string>
+    <string name="home_text1">શ્રી છોંતેર ગોળ દરજી કેળવણી મંડળ એ સતત પ્રવૃતિશીલ સંસ્થા છે.તેની સ્થાપના સને 1948 મા કરવામાં આવી હતી.આપણા સમાજ ના ભૂતપૂર્વ પ્રમુખ/મંત્રીશ્રી ઓ એ પોતાના સમય નો ભોગ આપીને આ સંસ્થા નું સિંચન કરેલ છે.કેળવણી ને વરેલી આ સંસ્થા નો મુખ્ય હેતુ વિદ્યાર્થી ઓને સહાયરૂપ થવાનો છે. "આવો" અને અમારી સાથે "જોડાઈ" ને આપણી આ સંસ્થા ને એક ઊંચા ફલક પર લઈ જઈએ. શ્રી છોત્તેર ગોળ દરજી કેળવણી મંડળ ને સોશિયલ મીડિયા દ્વારા ફેસબુક અને આ વેબસાઇટ સાથે જોડી વિશ્વ ના કોઈપણ ભાગ માં રહેતા આપણા જ્ઞાતિ બંધુઓ સાથે જોડાવવા નો આ અમારો પ્રથમ પ્રયાસ છે.આશા રાખીયે કે આપને ગમશે અને આપ સૌ અમારી સાથે જોડાઈ અમોને મદદરૂપ થશો.</string>
+    <string name="home_main_donor">મણીબેન શકરાલાલ છત્રીવાલા પરિવાર (માણસા) મુંબઈ</string>
+    <string name="home_besnu">બેસણું - DD/MMM/YYYY (સમય ? થી ? )</string>
+</resources>

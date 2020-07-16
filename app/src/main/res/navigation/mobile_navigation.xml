@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.darji.darjifamilyapp.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_aboutus"
+        android:name="com.darji.darjifamilyapp.ui.about.AboutFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_activities"
+        android:name="com.darji.darjifamilyapp.ui.activities.ActivitiesFragment"
+        android:label="Activities"
+        tools:layout="@layout/fragment_activities" />
+    <fragment
+        android:id="@+id/nav_matrimonial"
+        android:name="com.darji.darjifamilyapp.ui.matrimonial.MatrimonialFragment"
+        android:label="Matrimonial"
+        tools:layout="@layout/fragment_matrimonial" />
+    <fragment
+        android:id="@+id/nav_jobs"
+        android:name="com.darji.darjifamilyapp.ui.jobs.JobsFragment"
+        android:label="Jobs"
+        tools:layout="@layout/fragment_jobs" />
+    <fragment
+        android:id="@+id/nav_bulletin"
+        android:name="com.darji.darjifamilyapp.ui.bulletin.BulletinFragment"
+        android:label="Bulletin"
+        tools:layout="@layout/fragment_bulletin" />
+    <fragment
+        android:id="@+id/nav_downloads"
+        android:name="com.darji.darjifamilyapp.ui.downloads.DownloadsFragment"
+        android:label="Downloads"
+        tools:layout="@layout/fragment_downloads" />
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.darji.darjifamilyapp.ui.gallery.GalleryFragment"
+        android:label="Gallery"
+        tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/nav_donate"
+        android:name="com.darji.darjifamilyapp.ui.donate.DonateFragment"
+        android:label="Donate"
+        tools:layout="@layout/fragment_donate" />
+    <fragment
+        android:id="@+id/nav_contactus"
+        android:name="com.darji.darjifamilyapp.ui.contact.ContactFragment"
+        android:label="Contact Us"
+        tools:layout="@layout/fragment_contact" />
+
+</navigation>
