@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:layout_margin="8dp"
+    android:gravity="center"
+    android:weightSum="2"
+    android:background="@color/bulletin_bg">
+
+    <TextView
+        android:id="@+id/bulletin_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/main_text"
+        android:text="Test"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_weight="1">
+    <Button
+        android:id="@+id/bulletin_download"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginEnd="10dp"
+        android:text="Download"
+        android:ems="6"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textAllCaps="false"
+        android:background="@drawable/button_download1"/>
+    </LinearLayout>
+</LinearLayout>

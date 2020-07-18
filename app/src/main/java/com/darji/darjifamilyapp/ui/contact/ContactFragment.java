@@ -17,9 +17,6 @@ public class ContactFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_contact, container, false);
 
-        //final TextView textView = root.findViewById(R.id.t_contact);
-        //textView.setText("Hello World");
-
         return root;
     }
 }

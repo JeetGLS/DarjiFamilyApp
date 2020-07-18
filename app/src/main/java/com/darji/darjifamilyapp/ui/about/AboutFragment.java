@@ -16,10 +16,6 @@ public class AboutFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_about, container, false);
-
-        //final TextView textView = root.findViewById(R.id.text_home);
-        //textView.setText("Hello World");
-
         return root;
     }
 }

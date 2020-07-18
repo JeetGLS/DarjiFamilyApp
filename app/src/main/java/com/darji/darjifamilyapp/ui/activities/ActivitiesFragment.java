@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
+import com.darji.darjifamilyapp.Adapter.AdsSwipeAdapter;
 import com.darji.darjifamilyapp.R;
 
 public class ActivitiesFragment extends Fragment {
@@ -19,6 +21,7 @@ public class ActivitiesFragment extends Fragment {
 
         //final TextView textView = root.findViewById(R.id.t_activities);
         //textView.setText("Hello World");
+
 
         return root;
     }
