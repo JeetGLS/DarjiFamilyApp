@@ -34,8 +34,7 @@ public class DownloadsFragment extends Fragment {
 
         downloads = root.findViewById(R.id.downloads);
         downloads.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        downloads.setLayoutManager(layoutManager);
+        downloads.setLayoutManager(new LinearLayoutManager(getContext()));
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<DownloadsData>> data = apiService.getDownloads();

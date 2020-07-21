@@ -13,16 +13,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.darji.darjifamilyapp.Model.BulletinData;
 import com.darji.darjifamilyapp.R;
+
+import java.util.List;
 
 public class BulletinAdapter extends RecyclerView.Adapter<BulletinAdapter.MyHolder> {
     private Context context;
-    private int names[]={R.string.bulletin_1,R.string.bulletin_2};
-    private String links[]={"https://www.shri76goldarjikelavanimandal.com/Uploads/Bulletins/517c7d1bd055704f77c20b18b25d44f5.pdf","https://www.shri76goldarjikelavanimandal.com/Uploads/Bulletins/1350f505c9a4099618e3847b29b80def.pdf"};
+    private List<BulletinData> finalBulletins;
 
-    public BulletinAdapter(Context context)
-    {
+    public BulletinAdapter(Context context,List<BulletinData> finalBulletins) {
         this.context = context;
+        this.finalBulletins = finalBulletins;
     }
 
     @NonNull
@@ -35,12 +37,15 @@ public class BulletinAdapter extends RecyclerView.Adapter<BulletinAdapter.MyHold
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
-        holder.name.setText(context.getResources().getString(names[position]));
+
+        final BulletinData ddata = finalBulletins.get(position);
+
+        holder.name.setText(ddata.getTitle());
         holder.download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(links[position]));
+                i.setData(Uri.parse("https://www.shri76goldarjikelavanimandal.com/Uploads/Bulletins/"+ddata.getBulletinPath()));
                 context.startActivity(i);
             }
         });
@@ -48,7 +53,7 @@ public class BulletinAdapter extends RecyclerView.Adapter<BulletinAdapter.MyHold
 
     @Override
     public int getItemCount() {
-        return names.length;
+        return finalBulletins.size();
     }
 
     class MyHolder extends RecyclerView.ViewHolder

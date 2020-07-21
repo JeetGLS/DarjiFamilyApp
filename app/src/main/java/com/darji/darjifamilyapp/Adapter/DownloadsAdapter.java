@@ -18,14 +18,11 @@ import com.darji.darjifamilyapp.R;
 
 import java.util.List;
 
-
 public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.MyHolder> {
     private Context context;
     private List<DownloadsData> finalDownload;
 
-
-    public DownloadsAdapter(Context context,List<DownloadsData> finalDownload)
-    {
+    public DownloadsAdapter(Context context,List<DownloadsData> finalDownload) {
         this.context = context;
         this.finalDownload = finalDownload;
     }
