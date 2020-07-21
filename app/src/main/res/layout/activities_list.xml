@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:paddingEnd="8dp"
+    android:paddingStart="8dp"
+    android:gravity="center"
+    android:background="@color/bulletin_bg">
+
+    <TextView
+        android:id="@+id/activity_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/main_text"
+        android:text="Notebok Distributions"/>
+    <TextView
+        android:id="@+id/activity_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="દર વર્ષે કેળવણી મંડળ દ્વારા આપણા સમાજ ના બાળકો માટે આશરે 1400 ડઝન નોટબૂક 50%(પચાસ ટકા) ના રાહત દરે વિતરણ કરવામાં આવે છે.જેના માટે કેળવણી મંડળ દ્વારા અલગ-અલગ કેન્દ્રો બનાવવામાં આવ્યા છે.દા ત. શાહપુર,કાલુપુર,પાલડી,નારણપુરા,ગાંધીનગર,કલોલ,લાંઘણજ,વિજાપુર,વડોદરા,સુરત,મુંબઈ,પુના વગેરે.... જે-તે વિસ્તાર માં રહેતા વિદ્યાર્થીઓ નજીક નાં કેન્દ્ર માં જઈ તે ખરીદી શકે છે."
+        />
+
+</LinearLayout>
