@@ -13,16 +13,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.darji.darjifamilyapp.Model.DownloadsData;
 import com.darji.darjifamilyapp.R;
+
+import java.util.List;
+
 
 public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.MyHolder> {
     private Context context;
-    private String names[]={"ટેલિફોન ડાયરી","ધોરણ 10 ના ચમકતા તારલા-2019","શ્રદ્ધાંજલિ યાદી","MEDICAL HELP","સ્વાસ્થ્ય સમાચાર","રાહતકીટ માટે દાન આપનાર દાતાઓની યાદી"};
-    private String links[]={"https://www.shri76goldarjikelavanimandal.com/Uploads/Downloads/TelephoneDiary.pdf","https://www.shri76goldarjikelavanimandal.com/Uploads/Downloads/Std.10%20Chamakta%20Tarla-2019.pdf","https://www.shri76goldarjikelavanimandal.com/Uploads/Downloads/Swargvas%20List.pdf","https://www.shri76goldarjikelavanimandal.com/Uploads/Downloads/MEDICAL%20HELP.pdf","https://www.shri76goldarjikelavanimandal.com/Uploads/Downloads/Vinanti.pdf","https://www.shri76goldarjikelavanimandal.com/Uploads/Downloads/Rahatkit%20Bulletin%20Ank%203.pdf"};
+    private List<DownloadsData> finalDownload;
 
-    public DownloadsAdapter(Context context)
+
+    public DownloadsAdapter(Context context,List<DownloadsData> finalDownload)
     {
         this.context = context;
+        this.finalDownload = finalDownload;
     }
 
     @NonNull
@@ -35,13 +40,15 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.MyHo
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
-        holder.name.setText(names[position]);
+
+        final DownloadsData ddata = finalDownload.get(position);
+
+        holder.name.setText(ddata.getName());
         holder.download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Put condition where if filename == "" then show toast "coming soon"
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(links[position]));
+                i.setData(Uri.parse("https://www.shri76goldarjikelavanimandal.com/Uploads/Downloads/"+ddata.getFileName()));
                 context.startActivity(i);
             }
         });
@@ -49,7 +56,7 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.MyHo
 
     @Override
     public int getItemCount() {
-        return names.length;
+        return finalDownload.size();
     }
 
     class MyHolder extends RecyclerView.ViewHolder
