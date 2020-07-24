@@ -50,7 +50,7 @@ public class ContactFragment extends Fragment implements OnMapReadyCallback {
         MapsInitializer.initialize(getContext());
         mGoogleMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.055331,72.545035)).title("Shri 76 Gol Darji Kelavani Mandal , Satellite"));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.055331,72.545035)).title("Shri 76 Gol Darji Kelavani Mandal, Satellite"));
         CameraPosition Library = CameraPosition.builder().target(new LatLng(23.055331,72.545035)).zoom(16).bearing(0).tilt(45).build();
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Library));
     }

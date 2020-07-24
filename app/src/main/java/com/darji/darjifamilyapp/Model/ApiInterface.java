@@ -13,7 +13,7 @@ public interface ApiInterface {
     @GET("BulletinsAPI.php")
     Call<List<BulletinData>> getBulletins();
 
-    @GET("Jobs.php")
+    @GET("JobsAPI.php")
     Call<List<JobsData>> getJobs();
 
     @GET("MatrimonialCandidatesAPI.php")

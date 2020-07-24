@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/jobs_list_borders"
+    android:layout_marginBottom="15dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:paddingBottom="10dp"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/jobs_sector"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/job_sector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:textColor="@color/white"
+                android:text="GOVERNMENT"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/jobs_enddate"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/job_enddate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:textColor="@color/white"
+                android:text="31 JUL 2020"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/job_salary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Salary: 200000 - 600000"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/job_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Department of Posts Gujarat Posts 2020"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/job_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="15dp"
+            android:text="Postal Assistant And Postman"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company: "
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/job_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Department of Posts Gujarat" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skills: "
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/job_skill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10th And 12th Pass" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location: "
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/job_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gujarat" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact: "
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/job_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N/A" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

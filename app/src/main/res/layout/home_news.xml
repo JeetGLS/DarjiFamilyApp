@@ -23,14 +23,10 @@
                 android:textSize="16dp"
                 android:textStyle="bold" />
         </LinearLayout>
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/news"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:textSize="16dp"
-            android:text="News and Events Here"/>
+            android:layout_height="200dp"/>
+
     </LinearLayout>
 </LinearLayout>

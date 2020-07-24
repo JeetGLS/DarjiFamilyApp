@@ -13,4 +13,9 @@
     <color name="bulletin_download">#d9534f</color>
     <color name="bulletin_download_pressed">#bc2e29</color>
     <color name="bulletin_bg">#ededed</color>
+
+    <color name="job_date">#18ba60</color>
+    <color name="job_list_bg">#f2f2f2</color>
+    <color name="job_list_bg_pressed">#e6e6e6</color>
+    <color name="textDarkgray">#777777</color>
 </resources>

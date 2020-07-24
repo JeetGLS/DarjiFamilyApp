@@ -11,7 +11,7 @@ public class JobsData {
     private String Skills;
     private String OrganizationName;
     private String JobLocation;
-    private String Referencselink;
+    private String Referencelink;
     private String ContactNumber;
     private String PostedDate;
     private int IsActive;
@@ -56,8 +56,8 @@ public class JobsData {
         return JobLocation;
     }
 
-    public String getReferencselink() {
-        return Referencselink;
+    public String getReferencelink() {
+        return Referencelink;
     }
 
     public String getContactNumber() {

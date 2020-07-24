@@ -32,7 +32,7 @@
             android:layout_marginEnd="8dp"/>
         <!-- Besnu Layout -->
         <include
-            layout="@layout/home_occassions"
+            layout="@layout/home_occasions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"

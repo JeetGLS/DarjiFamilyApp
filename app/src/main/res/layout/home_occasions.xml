@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:id="@+id/home_besnu"
+        android:id="@+id/home_occasion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/home_layout_borders"
@@ -17,7 +17,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/home_occation"
+                android:text="@string/home_occasion"
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -33,6 +33,11 @@
             android:layout_marginEnd="8dp"
             android:lineSpacingExtra="2dp"
             android:textSize="17dp"
-            android:text="@string/occation_info"/>
+            android:text="@string/occasion_info"/>
     </LinearLayout>
+    <!-- Advertisement -->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/occasion_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
