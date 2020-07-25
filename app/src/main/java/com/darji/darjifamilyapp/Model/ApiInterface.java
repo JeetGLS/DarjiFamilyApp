@@ -4,6 +4,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -30,5 +31,11 @@ public interface ApiInterface {
 
     @GET("OccassionsAPI.php")
     Call<List<OccassionsData>> getOccassions();
+
+    @GET("GalleryAPI.php")
+    Call<List<GalleryData>> getGallery();
+
+    @GET("GalleryFilesAPI.php")
+    Call<List<String>> getGalleryFiles(@Query("id") int galleryID);
 
 }
