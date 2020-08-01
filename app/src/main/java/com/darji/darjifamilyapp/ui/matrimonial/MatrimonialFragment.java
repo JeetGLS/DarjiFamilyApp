@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,6 +41,18 @@ public class MatrimonialFragment extends Fragment implements MatrimonialAdapter.
         matrimonial = root.findViewById(R.id.matrimonial);
         matrimonial.setHasFixedSize(true);
         matrimonial.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        //get the spinner from the xml.
+        Spinner dropdown = root.findViewById(R.id.candidatesearch_nri);
+//create a list of items for the spinner.
+        String[] items = new String[]{"Yes", "No"};
+//create an adapter to describe how the items are displayed, adapters are used in several places in android.
+//There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
+//set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter);
+
+
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<MatrimonialData>> data = apiService.getMatrimonial();

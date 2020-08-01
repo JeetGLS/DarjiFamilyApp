@@ -2,7 +2,10 @@ package com.darji.darjifamilyapp.Adapter;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toolbar;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.darji.darjifamilyapp.Model.MatrimonialData;
@@ -20,7 +23,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MatrimonialView extends AppCompatActivity {
-
+    
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,6 +95,8 @@ public class MatrimonialView extends AppCompatActivity {
 
 
     }
+
+
     private String testDate(String finalDate){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate today = LocalDate.now();

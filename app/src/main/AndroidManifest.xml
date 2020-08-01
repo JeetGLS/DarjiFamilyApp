@@ -42,7 +42,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Adapter.MatrimonialView"
-            android:label="Matrimonial Candidate"/>
+            android:label="Matrimonial Candidate"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

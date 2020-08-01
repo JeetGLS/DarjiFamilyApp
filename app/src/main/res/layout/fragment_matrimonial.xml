@@ -3,7 +3,136 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textAlignment="viewStart"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:text="Search Candidates"/>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/candidatesearch_name"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="Name"/>
+        <EditText
+            android:id="@+id/candidatesearch_nativeplace"
+            android:layout_width="150dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content"
+            android:hint="Native Place"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Select Gender"/>
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:textSize="18sp"
+                android:text="Is NRI?"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/candidatesearch_gender"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:background="@android:drawable/btn_dropdown"/>
+            <Spinner
+                android:id="@+id/candidatesearch_nri"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:spinnerMode="dropdown"
+                android:background="@android:drawable/btn_dropdown"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Age From"/>
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:textSize="18sp"
+                android:text="Age To"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/candidatesearch_agefrom"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:background="@android:drawable/btn_dropdown"/>
+            <Spinner
+                android:id="@+id/candidatesearch_ageto"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:spinnerMode="dropdown"
+                android:background="@android:drawable/btn_dropdown"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/candidatesearch_button"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:background="@drawable/rounded_corners"
+                android:text="Search"/>
+            <Button
+                android:id="@+id/candidatesearch_register"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:textSize="18dp"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="#18ba60"
+                android:background="@drawable/rounded_corners"
+                android:text="Register Now!"/>
+        </LinearLayout>
+
+    </LinearLayout>
     <TextView
         android:id="@+id/t_downloads"
         android:layout_width="match_parent"
