@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.darji.darjifamilyapp.Model.MatrimonialData;
 import com.darji.darjifamilyapp.R;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,17 +22,19 @@ import java.util.List;
 public class MatrimonialAdapter extends RecyclerView.Adapter<MatrimonialAdapter.MyHolder> {
     private Context context;
     private List<MatrimonialData> finalMatrimonial;
+    private OnMatrimonialListener onMatrimonialListener;
 
-    public MatrimonialAdapter(Context context,List<MatrimonialData> finalMatrimonial){
+    public MatrimonialAdapter(Context context,List<MatrimonialData> finalMatrimonial,OnMatrimonialListener onMatrimonialListener){
         this.context = context;
         this.finalMatrimonial = finalMatrimonial;
+        this.onMatrimonialListener = onMatrimonialListener;
     }
 
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup container, int viewType) {
         View root = LayoutInflater.from(container.getContext()).inflate(R.layout.matrimonial_list,container,false);
-        MatrimonialAdapter.MyHolder myHolder = new MatrimonialAdapter.MyHolder(root);
+        MatrimonialAdapter.MyHolder myHolder = new MatrimonialAdapter.MyHolder(root,onMatrimonialListener);
         return myHolder;
     }
 
@@ -42,11 +45,17 @@ public class MatrimonialAdapter extends RecyclerView.Adapter<MatrimonialAdapter.
         holder.name.setText(mdata.getFirstName()+" "+mdata.getMiddleName()+" "+mdata.getLastName());
         holder.about.setText(mdata.getAboutMe());
         holder.city.setText(mdata.getNativePlace());
+        String dateStr = mdata.getBirthDte();
         try {
-            holder.date.setText((CharSequence) new SimpleDateFormat("dd/MM/yyyy").parse(mdata.getBirthDte()));
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Date d = format.parse(dateStr);
+
+            DateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
+            dateStr = dateFormat.format(d);
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        holder.date.setText(dateStr);
     }
 
     @Override
@@ -54,17 +63,30 @@ public class MatrimonialAdapter extends RecyclerView.Adapter<MatrimonialAdapter.
         return finalMatrimonial.size();
     }
 
-    class MyHolder extends RecyclerView.ViewHolder {
+    class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView name,about;
         Button city,date;
+        OnMatrimonialListener onMatrimonialListener;
 
-        public MyHolder(@NonNull View root) {
+        public MyHolder(@NonNull View root,OnMatrimonialListener onMatrimonialListener) {
             super(root);
             name = root.findViewById(R.id.candidate_name);
             about = root.findViewById(R.id.about_candidate);
             city = root.findViewById(R.id.btn_city);
             date = root.findViewById(R.id.btn_date);
+
+            this.onMatrimonialListener = onMatrimonialListener;
+            root.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            onMatrimonialListener.onMatrimonialClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnMatrimonialListener{
+        void onMatrimonialClick(int position);
     }
 }

@@ -41,6 +41,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Adapter.MatrimonialView"
+            android:label="Matrimonial Candidate"/>
     </application>
 
 </manifest>

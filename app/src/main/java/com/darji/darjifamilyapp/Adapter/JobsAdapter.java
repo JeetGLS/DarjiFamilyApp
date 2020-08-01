@@ -1,5 +1,6 @@
 package com.darji.darjifamilyapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.darji.darjifamilyapp.Model.JobsData;
 import com.darji.darjifamilyapp.R;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.JobHolder> {
@@ -37,13 +42,23 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.JobHolder> {
     public void onBindViewHolder(@NonNull JobHolder holder, int position) {
         final JobsData data = joblist.get(position);
         holder.sector.setText(data.getSector());
-        holder.enddate.setText(data.getExpireDate());
         holder.salary.setText("Salary: " + data.getSalaryFrom() + " - "+data.getSalaryTo());
         holder.title.setText(data.getJobTitle());
         holder.profile.setText(data.getJobProfile());
         holder.company.setText(data.getOrganizationName());
         holder.skills.setText(data.getSkills());
         holder.location.setText(data.getJobLocation());
+
+        String dateStr = data.getExpireDate();
+        try {
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Date d = format.parse(dateStr);
+            @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
+            dateStr = dateFormat.format(d);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        holder.enddate.setText(dateStr);
 
         if(data.getContactNumber().equals(""))
             holder.contact.setText("N/A");

@@ -1,52 +1,52 @@
 package com.darji.darjifamilyapp.Model;
 
 public class MatrimonialData {
-    private int MatrimonialId;
+    private String MatrimonialId;
     private String UserName;
     private String Password;
     private String FirstName;
     private String MiddleName;
     private String LastName;
-    private int Gender;
-    private int MaritalStatus;
-    private int IsNRI;
+    private String Gender;
+    private String MaritalStatus;
+    private String IsNRI;
     private String MotherName;
     private String MotherNativePlace;
-    private int BrothersHeadCount;
-    private int SistersHeadCount;
+    private String BrothersHeadCount;
+    private String SistersHeadCount;
     private String NativePlace;
     private String Address;
-    private int City;
-    private int State;
-    private int Country;
-    private Double Height;
-    private Double Weight;
+    private String City;
+    private String State;
+    private String Country;
+    private String Height;
+    private String Weight;
     private String BirthDte;
-    private int HighestEducationQualification;
+    private String HighestEducationQualification;
     private String Photo;
     private String EmailId;
     private String Occupation;
     private String Specialization;
-    private Double AnnualIncome;
+    private String AnnualIncome;
     private String AboutMe;
     private String ExpectationForPartner;
     private String RazorpayPaymentId;
     private String RazorpayOrderId;
-    private int IsActive;
-    private int IsPremium;
+    private String IsActive;
+    private String IsPremium;
     private String SubscriptionDate;
-    private int id;
+    private String id;
     private String sortname;
     private String name;
-    private int phonecode;
-    private int state_id;
-    private int Id;
+    private String phonecode;
+    private String state_id;
+    private String Id;
     private String Qualification;
     private String CountryName;
     private String CityName;
     private String OccupationName;
 
-    public int getMatrimonialId() {
+    public String getMatrimonialId() {
         return MatrimonialId;
     }
 
@@ -70,15 +70,15 @@ public class MatrimonialData {
         return LastName;
     }
 
-    public int getGender() {
+    public String getGender() {
         return Gender;
     }
 
-    public int getMaritalStatus() {
+    public String getMaritalStatus() {
         return MaritalStatus;
     }
 
-    public int getIsNRI() {
+    public String getIsNRI() {
         return IsNRI;
     }
 
@@ -90,11 +90,11 @@ public class MatrimonialData {
         return MotherNativePlace;
     }
 
-    public int getBrothersHeadCount() {
+    public String getBrothersHeadCount() {
         return BrothersHeadCount;
     }
 
-    public int getSistersHeadCount() {
+    public String getSistersHeadCount() {
         return SistersHeadCount;
     }
 
@@ -106,23 +106,23 @@ public class MatrimonialData {
         return Address;
     }
 
-    public int getCity() {
+    public String getCity() {
         return City;
     }
 
-    public int getState() {
+    public String getState() {
         return State;
     }
 
-    public int getCountry() {
+    public String getCountry() {
         return Country;
     }
 
-    public Double getHeight() {
+    public String getHeight() {
         return Height;
     }
 
-    public Double getWeight() {
+    public String getWeight() {
         return Weight;
     }
 
@@ -130,7 +130,7 @@ public class MatrimonialData {
         return BirthDte;
     }
 
-    public int getHighestEducationQualification() {
+    public String getHighestEducationQualification() {
         return HighestEducationQualification;
     }
 
@@ -150,7 +150,7 @@ public class MatrimonialData {
         return Specialization;
     }
 
-    public Double getAnnualIncome() {
+    public String getAnnualIncome() {
         return AnnualIncome;
     }
 
@@ -170,11 +170,11 @@ public class MatrimonialData {
         return RazorpayOrderId;
     }
 
-    public int getIsActive() {
+    public String getIsActive() {
         return IsActive;
     }
 
-    public int getIsPremium() {
+    public String getIsPremium() {
         return IsPremium;
     }
 
@@ -182,7 +182,7 @@ public class MatrimonialData {
         return SubscriptionDate;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -210,11 +210,11 @@ public class MatrimonialData {
         return name;
     }
 
-    public int getPhonecode() {
+    public String getPhonecode() {
         return phonecode;
     }
 
-    public int getState_id() {
+    public String getState_id() {
         return state_id;
     }
 }

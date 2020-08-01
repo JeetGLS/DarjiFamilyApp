@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    public static String BASE_URL ="http://yourfitnessapp.000webhostapp.com/Darji-Samaj/";
+    public static String BASE_URL ="http://192.168.0.109/ftpsite/";
     private static Retrofit retrofit;
     public static Retrofit getClient(){
         if(retrofit == null){
