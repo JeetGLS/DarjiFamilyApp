@@ -7,6 +7,8 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="main_text">18sp</dimen>
+    <dimen name="occasion_text">16sp</dimen>
 
     <dimen name="bank_topMargin">4dp</dimen>
+    <dimen name="occasion_topMargin">4dp</dimen>
 </resources>

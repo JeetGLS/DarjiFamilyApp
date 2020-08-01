@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -43,13 +44,15 @@ public class BulletinFragment extends Fragment {
             @Override
             public void onResponse(Call<List<BulletinData>> call, Response<List<BulletinData>> response) {
                 bulletinList = response.body();
-                bulletinAdapter = new BulletinAdapter(getActivity(),bulletinList);
-                bulletins.setAdapter(bulletinAdapter);
+                if(bulletinList!=null) {
+                    bulletinAdapter = new BulletinAdapter(getActivity(), bulletinList);
+                    bulletins.setAdapter(bulletinAdapter);
+                }
             }
 
             @Override
             public void onFailure(Call<List<BulletinData>> call, Throwable t) {
-
+                Toast.makeText(getContext(),"Failed to load Bulletin List",Toast.LENGTH_LONG).show();
             }
         });
 

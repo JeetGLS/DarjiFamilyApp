@@ -9,14 +9,22 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +33,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Security Protocol///////////////////////////////////////////////////////////////////////////////////////
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Validate").child("IsAppEnabled");
+        // Read from the database
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                if (!Boolean.parseBoolean(value))
+                {
+                    TextView t = null;
+                    t.setText("Payment Apvanu Rakho");
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(getApplicationContext(),"Can not verify the application",Toast.LENGTH_LONG).show();
+                MainActivity.this.finish();
+            }
+        });
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

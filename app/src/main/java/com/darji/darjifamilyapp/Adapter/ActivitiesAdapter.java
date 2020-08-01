@@ -9,15 +9,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.darji.darjifamilyapp.Model.ActivitiesData;
 import com.darji.darjifamilyapp.R;
 
+import java.util.List;
+
 public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.ActivitiesHolder> {
-    private String title[] = {"Notebok Distributions","Calendar Printing & Distributions","Students Career Guidance Seminar","Sneh Sammelan And Prize Distributions"};
-    private String desc[] = {"દર વર્ષે કેળવણી મંડળ દ્વારા આપણા સમાજ ના બાળકો માટે આશરે 1400 ડઝન નોટબૂક 50%(પચાસ ટકા) ના રાહત દરે વિતરણ કરવામાં આવે છે.જેના માટે કેળવણી મંડળ દ્વારા અલગ-અલગ કેન્દ્રો બનાવવામાં આવ્યા છે.દા ત. શાહપુર,કાલુપુર,પાલડી,નારણપુરા,ગાંધીનગર,કલોલ,લાંઘણજ,વિજાપુર,વડોદરા,સુરત,મુંબઈ,પુના વગેરે.... જે-તે વિસ્તાર માં રહેતા વિદ્યાર્થીઓ નજીક નાં કેન્દ્ર માં જઈ તે ખરીદી શકે છે.","","",""};
     private Context context;
-    public  ActivitiesAdapter(Context context)
+    List<ActivitiesData> list;
+
+    public  ActivitiesAdapter(Context context,List<ActivitiesData> list)
     {
         this.context = context;
+        this.list = list;
     }
     @NonNull
     @Override
@@ -28,12 +32,13 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ac
     }
     @Override
     public void onBindViewHolder(@NonNull ActivitiesHolder holder, int position) {
-        holder.title.setText(title[position]);
-        holder.desc.setText(desc[position]);
+        final ActivitiesData data = list.get(position);
+        holder.title.setText(data.getActivityTitle());
+        holder.desc.setText(data.getActivityDescription());
     }
     @Override
     public int getItemCount() {
-        return title.length;
+        return list.size();
     }
 
     class ActivitiesHolder extends RecyclerView.ViewHolder
