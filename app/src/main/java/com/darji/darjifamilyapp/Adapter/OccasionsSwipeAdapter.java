@@ -12,10 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.darji.darjifamilyapp.Model.ApiClient;
 import com.darji.darjifamilyapp.Model.OccassionsData;
 import com.darji.darjifamilyapp.R;
-import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,9 +34,10 @@ public class OccasionsSwipeAdapter extends PagerAdapter {
         this.list = list;
     }
 
+    public int getDataCount() { return list.size(); }
     @Override
     public int getCount() {
-        return list.size();
+        return Integer.MAX_VALUE;
     }
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
@@ -78,7 +80,8 @@ public class OccasionsSwipeAdapter extends PagerAdapter {
         givenby = root.findViewById(R.id.occasion_givenby);
 
         //Getting Data
-        OccassionsData data = list.get(position);
+        final int DataPosition = position%getDataCount();
+        OccassionsData data = list.get(DataPosition);
 
         //DateFormatting - Occasion Date
         SimpleDateFormat base_format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -119,15 +122,19 @@ public class OccasionsSwipeAdapter extends PagerAdapter {
             osp1.setVisibility(View.INVISIBLE);
             osp2.setVisibility(View.INVISIBLE);
             date.setText(odate);
-            //TODO Generate Age
             age_place.setText(""+getAge(odate));
         }
 
-        Picasso.get()
+
+        //Glide
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.mipmap.occasion_photo);
+        requestOptions.error(R.mipmap.occasion_photo);
+        Glide.with(context)
                 .load(Uri.parse(ApiClient.BASE_URL+"Uploads/Occassions/"+data.getPhoto()))
-                .placeholder(R.mipmap.occasion_photo)
-                .error(R.mipmap.occasion_photo)
+                .apply(requestOptions)
                 .into(photo);
+
 
         name.setText(data.getName() + " ("+data.getNativePlace()+")");
         contact.setText(data.getContactNumber());

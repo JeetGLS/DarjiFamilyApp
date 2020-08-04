@@ -13,11 +13,12 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.darji.darjifamilyapp.Model.AdvertisementData;
 import com.darji.darjifamilyapp.Model.ApiClient;
 import com.darji.darjifamilyapp.R;
 import com.darji.darjifamilyapp.ui.home.HomeFragment;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -54,7 +55,6 @@ public class AdsSwipeAdapter extends PagerAdapter {
         ImageView adImage = itemView.findViewById(R.id.adimage);
 
         //Handling Current Position
-        HomeFragment.AD_POSITION=position;
         final int DataPosition = position%getDataCount();
 
         //Setting Data
@@ -63,11 +63,16 @@ public class AdsSwipeAdapter extends PagerAdapter {
         //Log.d("AdsAdapter","Pos:"+position+", Data_position:"+ (DataPosition) );
         //Log.d("AdsAdapter",ApiClient.BASE_URL+"Uploads/Advertisement/"+data.getBannerImage());
 
-        Picasso.get()
+
+        //Glide
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.mipmap.ad_placeholder);
+        requestOptions.error(R.mipmap.ad_placeholder);
+        Glide.with(context)
                 .load(Uri.parse(ApiClient.BASE_URL+"Uploads/Advertisement/"+data.getBannerImage()))
-                .placeholder(R.mipmap.ad_placeholder)
-                .error(R.mipmap.ad_placeholder)
+                .apply(requestOptions)
                 .into(adImage);
+
 
         adImage.setOnClickListener(new View.OnClickListener() {
             @Override

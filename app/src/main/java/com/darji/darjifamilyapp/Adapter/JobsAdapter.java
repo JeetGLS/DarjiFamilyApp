@@ -69,7 +69,7 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsAdapter.JobHolder> {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(data.getReferencelink()));
+                i.setData(Uri.parse(data.getReferencelink().trim()));
                 context.startActivity(i);
             }
         });

@@ -52,7 +52,7 @@ public class BulletinFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<BulletinData>> call, Throwable t) {
-                Toast.makeText(getContext(),"Failed to load Bulletin List",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),"Failed to load Bulletin List",Toast.LENGTH_LONG).show();
             }
         });
 

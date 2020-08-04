@@ -88,9 +88,9 @@ public class MatrimonialView extends AppCompatActivity {
         expectation.setText(data.getExpectationForPartner());
 
         String bdate = "";
-//        String ar[] = data.getBirthDte().split("-",3);
-//        bdate = getAge(Integer.parseInt(ar[0]),Integer.parseInt(ar[1]),Integer.parseInt(ar[2]));
-        bdate = testDate(data.getBirthDte());
+        String ar[] = data.getBirthDte().split("-",3);
+        bdate = getAge(Integer.parseInt(ar[0]),Integer.parseInt(ar[1]),Integer.parseInt(ar[2]));
+//        bdate = testDate(data.getBirthDte());
         age.setText(bdate);
 
 

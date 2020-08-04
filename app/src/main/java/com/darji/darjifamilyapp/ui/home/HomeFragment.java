@@ -2,9 +2,11 @@ package com.darji.darjifamilyapp.ui.home;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,17 +39,15 @@ public class HomeFragment extends Fragment {
     private ViewPager ads;
     private AdsSwipeAdapter adsAdapter;
     private List<AdvertisementData> adsData;
-    private Timer timer;
-
-    public static int AD_POSITION=0;
+    private Timer adsTimer;
 
     private View occasion_holder;
     private ViewPager occasions;
     private View occasionsContainer;
     private OccasionsSwipeAdapter occasionsAdapter;
     private List<OccassionsData> occassionsData;
-
-    public static int OCCASION_POSITION = 0;
+    private Button o_left,o_right;
+    private Timer occasionsTimer;
 
     private RecyclerView news;
     private NewsAdapter newsAdapter;
@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
             }
             @Override
             public void onFailure(Call<List<AdvertisementData>> call, Throwable t) {
-                Toast.makeText(getContext(),"Failed to load Ads Data",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(),"Failed to load Ads Data",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -98,6 +98,7 @@ public class HomeFragment extends Fragment {
                     occasions.setAdapter(occasionsAdapter);
                     occasionsContainer.setVisibility(View.VISIBLE);
                     occasion_holder.setVisibility(View.GONE);
+                    occasionsAutoScroll();
                 } else {
                     occasionsContainer.setVisibility(View.GONE);
                     occasion_holder.setVisibility(View.VISIBLE);
@@ -106,10 +107,24 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<OccassionsData>> call, Throwable t) {
-                Toast.makeText(getContext(),"Failed to load Occasions Data",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(),"Failed to load Occasions Data",Toast.LENGTH_SHORT).show();
             }
         });
-
+        //////Handling Floating Buttons
+        o_left = root.findViewById(R.id.occasion_left);
+        o_right = root.findViewById(R.id.occasion_right);
+        o_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                occasions.setCurrentItem(occasions.getCurrentItem()-1,true);
+            }
+        });
+        o_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                occasions.setCurrentItem(occasions.getCurrentItem()+1,true);
+            }
+        });
 
         /////News Showing////////////////////////////////////////////////////////////////////////////////////////////////////////
         news = root.findViewById(R.id.news);
@@ -121,7 +136,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<List<NewsEventsData>> call, Response<List<NewsEventsData>> response) {
                 newsData = response.body();
-                if(newsData==null) {
+                Log.d("News","Count = "+newsData.size());
+                if(newsData==null || newsData.size()<=0) {
                     nonews.setVisibility(View.VISIBLE);
                     news.setVisibility(View.GONE);
                 }
@@ -132,7 +148,10 @@ public class HomeFragment extends Fragment {
             }
             @Override
             public void onFailure(Call<List<NewsEventsData>> call, Throwable t) {
-                Toast.makeText(getContext(),"Failed to load News Data",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(),"Failed to load News Data",Toast.LENGTH_SHORT).show();
+                Log.d("News Error","Data: "+t.getMessage());
+                nonews.setVisibility(View.VISIBLE);
+                news.setVisibility(View.GONE);
             }
         });
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -146,13 +165,32 @@ public class HomeFragment extends Fragment {
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                if(AD_POSITION==(adsAdapter.getCount()))
-                    AD_POSITION=0;
-                ads.setCurrentItem(AD_POSITION++,true);
+                if(ads.getCurrentItem()==(adsAdapter.getCount()))
+                    ads.setCurrentItem(0);
+                ads.setCurrentItem(ads.getCurrentItem()+1,true);
             }
         };
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
+        adsTimer = new Timer();
+        adsTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(runnable);
+            }
+        },250,4000);
+    }
+    private void occasionsAutoScroll()
+    {
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                if(occasions.getCurrentItem()==(occasionsAdapter.getCount()))
+                    occasions.setCurrentItem(0);
+                occasions.setCurrentItem(occasions.getCurrentItem()+1,true);
+            }
+        };
+        occasionsTimer = new Timer();
+        occasionsTimer.schedule(new TimerTask() {
             @Override
             public void run() {
                 handler.post(runnable);

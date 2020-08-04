@@ -61,12 +61,13 @@ public class MatrimonialFragment extends Fragment implements MatrimonialAdapter.
             @Override
             public void onResponse(Call<List<MatrimonialData>> call, Response<List<MatrimonialData>> response) {
                 matrimonialList = response.body();
-                CallData();
+                if(matrimonialList!=null)
+                    CallData();
             }
 
             @Override
             public void onFailure(Call<List<MatrimonialData>> call, Throwable t) {
-                Toast.makeText(getContext(),"Network Failed!",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),"Network Failed!",Toast.LENGTH_LONG).show();
             }
         });
 

@@ -62,11 +62,11 @@ public class JobsFragment extends Fragment {
                 if (expandableView.getVisibility()==View.GONE){
                     TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
                     expandableView.setVisibility(View.VISIBLE);
-                    arrowBtn.setBackgroundResource(R.drawable.ic_launcher_foreground);
+                    arrowBtn.setBackgroundResource(R.drawable.drawer_list_selector);
                 } else {
                     TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
                     expandableView.setVisibility(View.GONE);
-                    arrowBtn.setBackgroundResource(R.drawable.ic_launcher_foreground);
+                    arrowBtn.setBackgroundResource(R.drawable.drawer_list_selector);
                 }
             }
         });
@@ -87,7 +87,7 @@ public class JobsFragment extends Fragment {
             }
             @Override
             public void onFailure(Call<List<JobsData>> call, Throwable t) {
-                Toast.makeText(getContext(),"Failed to load Jobs List",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),"Failed to load Jobs List",Toast.LENGTH_LONG).show();
             }
         });
 

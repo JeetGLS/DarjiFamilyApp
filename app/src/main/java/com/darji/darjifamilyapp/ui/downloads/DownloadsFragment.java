@@ -52,7 +52,7 @@ public class DownloadsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<DownloadsData>> call, Throwable t) {
-                Toast.makeText(getContext(),"Failed to load Download List",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),"Failed to load Download List",Toast.LENGTH_LONG).show();
             }
         });
 

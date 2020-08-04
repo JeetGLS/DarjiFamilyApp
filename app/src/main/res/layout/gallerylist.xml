@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="4dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:paddingEnd="16dp"
+    android:background="@drawable/home_layout_borders">
+
+    <ImageView
+        android:id="@+id/gallery_thumb"
+        android:layout_width="140dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="12dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/g1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="15dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/gallery_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="3dp"
+            android:textSize="20dp"
+            android:text="Gallery Title"/>
+        <TextView
+            android:id="@+id/gallery_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="1dp"
+            android:textSize="20dp"
+            android:text="01 Jan 2020"/>
+    </LinearLayout>
+</LinearLayout>

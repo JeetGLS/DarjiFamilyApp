@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
+        android:paddingBottom="40dp"
         android:orientation="vertical">
         <!-- Head Logo -->
         <ImageView
@@ -29,7 +29,7 @@
             layout="@layout/home_news"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"/>
         <!-- Besnu Layout -->
@@ -38,7 +38,7 @@
             layout="@layout/home_occasions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"/>
         <!-- Occasions -->

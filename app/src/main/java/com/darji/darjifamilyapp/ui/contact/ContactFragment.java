@@ -1,9 +1,13 @@
 package com.darji.darjifamilyapp.ui.contact;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,11 +29,43 @@ public class ContactFragment extends Fragment implements OnMapReadyCallback {
     MapView mMapView;
     View mView;
 
+    ScrollView mainScrollView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         mView = inflater.inflate(R.layout.fragment_contact, container, false);
+
+        //For scroll handling
+        mainScrollView = mView.findViewById(R.id.contactsscroll);
+        /*
+        ImageView mapLayout;
+        mapLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_MOVE:
+                        // Disallow ScrollView to intercept touch events.
+                        Log.d("Map","down");
+                        mainScrollView.requestDisallowInterceptTouchEvent(true);
+                        // Disable touch on transparent view
+                        return true;
+
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL:
+                        // Allow ScrollView to intercept touch events.
+                        Log.d("Map","up");
+                        mainScrollView.requestDisallowInterceptTouchEvent(false);
+                        return true;
+                }
+                return true;
+            }
+        });*/
+
+
         return mView;
     }
 

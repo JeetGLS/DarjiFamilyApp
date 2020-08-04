@@ -53,7 +53,7 @@ public class ActivitiesFragment extends Fragment {
             }
             @Override
             public void onFailure(Call<List<ActivitiesData>> call, Throwable t) {
-                Toast.makeText(getContext(),"Failed to load Activities List",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),"Failed to load Activities List",Toast.LENGTH_LONG).show();
             }
         });
 
