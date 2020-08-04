@@ -23,6 +23,15 @@
                 android:textSize="16dp"
                 android:textStyle="bold" />
         </LinearLayout>
+        <TextView
+            android:id="@+id/nonews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="No upcoming events or news available to show"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/news"
             android:layout_width="match_parent"

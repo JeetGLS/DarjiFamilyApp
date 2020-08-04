@@ -3,9 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:id="@+id/home_occasion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="280dp"
         android:background="@drawable/home_layout_borders"
         android:orientation="vertical">
         <LinearLayout
@@ -35,9 +34,4 @@
             android:textSize="17dp"
             android:text="@string/occasion_info"/>
     </LinearLayout>
-    <!-- Advertisement -->
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/occasion_slider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 </LinearLayout>

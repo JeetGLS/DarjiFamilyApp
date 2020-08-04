@@ -79,13 +79,15 @@ public class JobsFragment extends Fragment {
             @Override
             public void onResponse(Call<List<JobsData>> call, Response<List<JobsData>> response) {
                 joblist = response.body();
-                jobsAdapter = new JobsAdapter(getActivity(),joblist);
-                jobs.setAdapter(jobsAdapter);
-                jobCount.setText(""+jobsAdapter.getItemCount());
+                if(joblist!=null) {
+                    jobsAdapter = new JobsAdapter(getActivity(), joblist);
+                    jobs.setAdapter(jobsAdapter);
+                    jobCount.setText("" + jobsAdapter.getItemCount());
+                }
             }
             @Override
             public void onFailure(Call<List<JobsData>> call, Throwable t) {
-
+                Toast.makeText(getContext(),"Failed to load Jobs List",Toast.LENGTH_LONG).show();
             }
         });
 
