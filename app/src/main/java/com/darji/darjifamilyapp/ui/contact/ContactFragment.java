@@ -6,13 +6,20 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.darji.darjifamilyapp.Model.ApiClient;
+import com.darji.darjifamilyapp.Model.ApiInterface;
+import com.darji.darjifamilyapp.Model.MatrimonialData;
 import com.darji.darjifamilyapp.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,6 +30,15 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ContactFragment extends Fragment implements OnMapReadyCallback {
 
     GoogleMap mGoogleMap;
@@ -30,7 +46,7 @@ public class ContactFragment extends Fragment implements OnMapReadyCallback {
     View mView;
 
     ScrollView mainScrollView;
-
+    EditText name,email,phone,message;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -66,7 +82,45 @@ public class ContactFragment extends Fragment implements OnMapReadyCallback {
         });*/
 
 
+        Button submit = mView.findViewById(R.id.button_mail);
+        name = mView.findViewById(R.id.name);
+        email = mView.findViewById(R.id.email);
+        phone = mView.findViewById(R.id.phone);
+        message = mView.findViewById(R.id.message);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendData();
+            }
+        });
+
+
         return mView;
+    }
+
+    public void sendData(){
+        String nm = name.getText().toString();
+        String em = email.getText().toString();
+        String ph = phone.getText().toString();
+        String mg = message.getText().toString();
+        if(nm.isEmpty() || em.isEmpty() || ph.isEmpty() || mg.isEmpty()){
+            Toast.makeText(getContext(),"All Fields Required",Toast.LENGTH_LONG).show();
+        }else{
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            Call<Integer> a = apiService.submitData(nm, em, mg, ph);
+            a.enqueue(new Callback<Integer>() {
+                @Override
+                public void onResponse(Call<Integer> call, Response<Integer> response) {
+
+                }
+                @Override
+                public void onFailure(Call<Integer> call, Throwable t) {
+
+                }
+            });
+            Toast.makeText(getContext(),"Submitted",Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
