@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Father Name: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcFather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Father's Name Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Native Place: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcNative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Native Place Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Mother Name: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcMother"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Mother Name Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Mother Native Place: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcMotherNative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Mother Native Place Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Address: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Address Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Brothers Count: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcBrotherCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Brothers Count Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Sister Count: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcSisterCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Mother Native Place Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="About Me: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="About Me Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Highest Education Qualification: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcQaulification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Qualification Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Specialization: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcSpecialization"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Spacialization Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Occupation: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcOccupation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Occupation Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Annual Income: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcIncome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Income Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Height: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Height Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Weight Count: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Weight Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Age: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcAge"
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Age Here" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/matrimonial_defaultVerticalSpacing">
+        <TextView
+            android:layout_width="@dimen/matrimonial_title_width"
+            android:layout_height="wrap_content"
+            android:text="Expectation About Partner: "
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mcExpectation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/matrimonial_marginStart"
+            android:textSize="@dimen/matrimonial_textSize"
+            android:textColor="@color/matrimonial_view_text"
+            android:text="Expectation About Partner Here" />
+    </LinearLayout>
+
+</LinearLayout>

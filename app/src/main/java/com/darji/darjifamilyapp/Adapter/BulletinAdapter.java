@@ -1,5 +1,6 @@
 package com.darji.darjifamilyapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.darji.darjifamilyapp.Model.BulletinData;
 import com.darji.darjifamilyapp.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class BulletinAdapter extends RecyclerView.Adapter<BulletinAdapter.MyHolder> {
@@ -35,12 +40,24 @@ public class BulletinAdapter extends RecyclerView.Adapter<BulletinAdapter.MyHold
         return myHolder;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
 
         final BulletinData ddata = finalBulletins.get(position);
 
-        holder.name.setText(ddata.getTitle());
+        SimpleDateFormat inputMonthFormat = new SimpleDateFormat("M");
+        SimpleDateFormat outputMonthFormat = new SimpleDateFormat("MMMM");
+        Date month;
+        String m;
+        try {
+            month = inputMonthFormat.parse(Integer.toString(ddata.getMonth()));
+            m = outputMonthFormat.format(month);
+        } catch (ParseException e) {
+            m="Month";
+            e.printStackTrace();
+        }
+        holder.name.setText(ddata.getTitle()+" ("+m+" - "+ddata.getYear()+")");
         holder.download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

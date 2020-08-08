@@ -136,7 +136,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<List<NewsEventsData>> call, Response<List<NewsEventsData>> response) {
                 newsData = response.body();
-                Log.d("News","Count = "+newsData.size());
+                //Log.d("News","Count = "+newsData.size());
                 if(newsData==null || newsData.size()<=0) {
                     nonews.setVisibility(View.VISIBLE);
                     news.setVisibility(View.GONE);

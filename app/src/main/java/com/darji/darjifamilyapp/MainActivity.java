@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     TextView t = null;
                     t.setText("Payment Apvanu Rakho");
                 }
+                main();
             }
             @Override
             public void onCancelled(DatabaseError error) {
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
         });
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    }
+
+    private void main()
+    {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

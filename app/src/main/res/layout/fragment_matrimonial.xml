@@ -3,157 +3,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/matrimonialCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CardView.Light"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/candidateSearch"
+                android:layout_width="match_parent"
+                android:layout_above="@id/candidateExpandableView"
+                android:layout_height="56dp" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Search Candidates"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/candidateArrow"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleX="0.9"
+                android:scaleY="0.9"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="12dp"
+                android:layout_alignParentEnd="true"
+                android:src="@mipmap/expand" />
+
+            <RelativeLayout
+                android:id="@+id/candidateExpandableView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/candidateArrow"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+
+                <include layout="@layout/matrimonial_filter"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/candidate_count"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:text="0" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:textAlignment="viewStart"
-            android:textSize="25sp"
-            android:textColor="@color/black"
-            android:text="Search Candidates"/>
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:id="@+id/candidatesearch_name"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:hint="Name"/>
-        <EditText
-            android:id="@+id/candidatesearch_nativeplace"
-            android:layout_width="150dp"
-            android:layout_marginLeft="20dp"
-            android:layout_height="wrap_content"
-            android:hint="Native Place"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Select Gender"/>
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:textSize="18sp"
-                android:text="Is NRI?"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Spinner
-                android:id="@+id/candidatesearch_gender"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"
-                android:background="@android:drawable/btn_dropdown"/>
-            <Spinner
-                android:id="@+id/candidatesearch_nri"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:spinnerMode="dropdown"
-                android:background="@android:drawable/btn_dropdown"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Age From"/>
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:textSize="18sp"
-                android:text="Age To"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Spinner
-                android:id="@+id/candidatesearch_agefrom"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"
-                android:background="@android:drawable/btn_dropdown"/>
-            <Spinner
-                android:id="@+id/candidatesearch_ageto"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:spinnerMode="dropdown"
-                android:background="@android:drawable/btn_dropdown"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/candidatesearch_button"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:background="@drawable/rounded_corners"
-                android:text="Search"/>
-            <Button
-                android:id="@+id/candidatesearch_register"
-                android:layout_width="200dp"
-                android:layout_height="80dp"
-                android:textSize="18dp"
-                android:layout_marginLeft="20dp"
-                android:backgroundTint="#18ba60"
-                android:background="@drawable/rounded_corners"
-                android:text="Register Now!"/>
-        </LinearLayout>
-
+            android:textSize="16sp"
+            android:text="Candidate(s) Found" />
     </LinearLayout>
-    <TextView
-        android:id="@+id/t_downloads"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:textAlignment="viewStart"
-        android:textSize="25sp"
-        android:text="Matrimonial Candidates"
-        android:textColor="@color/black" />
-    <View
-        android:layout_width="45dp"
-        android:layout_height="1dp"
-        android:background="@color/black"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="5dp"
-        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/matrimonial"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"/>

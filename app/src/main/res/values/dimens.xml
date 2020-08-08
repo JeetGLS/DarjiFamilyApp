@@ -11,4 +11,10 @@
 
     <dimen name="bank_topMargin">4dp</dimen>
     <dimen name="occasion_topMargin">4dp</dimen>
+
+    <dimen name="matrimonial_textSize">16sp</dimen>
+    <dimen name="matrimonial_marginStart">1dp</dimen>
+    <dimen name="matrimonial_defaultVerticalSpacing">5dp</dimen>
+    <dimen name="matrimonial_title_width">120dp</dimen>
+
 </resources>

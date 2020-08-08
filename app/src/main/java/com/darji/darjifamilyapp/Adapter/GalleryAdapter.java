@@ -2,6 +2,8 @@ package com.darji.darjifamilyapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,18 +13,26 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.darji.darjifamilyapp.Model.ApiClient;
+import com.darji.darjifamilyapp.Model.ApiInterface;
+import com.darji.darjifamilyapp.Model.GalleryData;
 import com.darji.darjifamilyapp.R;
 import com.darji.darjifamilyapp.ui.gallery.GalleryViewActivity;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryHolder> {
     Context context;
+    List<GalleryData> list;
 
-    int thumbs[] = {R.mipmap.g1,R.mipmap.g2,R.mipmap.g3,R.mipmap.g4,R.mipmap.g5};
-    String titles[] = {"CORONA WARRIORS"," સ્નેહ સમ્મેલન - 2019","કેરીઅર ગાઈડન્સ સેમિનાર -2019","નવદંપતી (2018-2020)","વિદેશ અભ્યાસાર્થે જતા વિદ્યાર્થીઓ નું સન્માન"};
-    String dates[] = {"01 Jan 2020","01 Jan 2020","01 Jan 2020","01 Jan 2020","01 Jan 2020"};
-
-    public GalleryAdapter(Context context) {
+    public GalleryAdapter(Context context,List<GalleryData> list) {
         this.context = context;
+        this.list = list;
     }
 
     @NonNull
@@ -34,17 +44,38 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GalleryHolder holder, final int position) {
-        holder.thumb.setImageResource(thumbs[position]);
-        holder.title.setText(titles[position]);
-        holder.date.setText(dates[position]);
+    public void onBindViewHolder(@NonNull final GalleryHolder holder, final int position) {
+
+        final GalleryData data = list.get(position);
+
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<List<String>> call = apiService.getGalleryFiles(Integer.parseInt(data.getGalleryId()));
+        call.enqueue(new Callback<List<String>>() {
+            @Override
+            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+                List<String> imageList = response.body();
+                if(imageList!=null) {
+                    final String thumb = imageList.get(0);
+                    //Log.d("Gallery", "Data: " + thumb);
+                    Glide.with(context)
+                            .load(Uri.parse(ApiClient.BASE_URL + thumb))
+                            .into(holder.thumb);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<String>> call, Throwable t) {}
+        });
+
+        holder.title.setText(data.getGalleryName());
+        holder.date.setText(data.getProgramDate());
 
         holder.main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent(context, GalleryViewActivity.class);
-                i.putExtra("id","1"); //Add ID Here
-                i.putExtra("title",titles[position]);
+                i.putExtra("id",data.getGalleryId()); //Add ID Here
+                i.putExtra("title",data.getGalleryName());
                 context.startActivity(i);
             }
         });
@@ -52,7 +83,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryH
 
     @Override
     public int getItemCount() {
-        return titles.length;
+        return list.size();
     }
 
     class GalleryHolder extends RecyclerView.ViewHolder{

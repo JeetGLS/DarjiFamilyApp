@@ -2,6 +2,7 @@ package com.darji.darjifamilyapp.Adapter;
 
 import android.content.Context;
 import android.media.Image;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,17 +12,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.darji.darjifamilyapp.Model.GalleryData;
+import com.darji.darjifamilyapp.Model.ApiClient;
 import com.darji.darjifamilyapp.R;
 import com.stfalcon.imageviewer.StfalconImageViewer;
 import com.stfalcon.imageviewer.loader.ImageLoader;
 
+import java.util.List;
+
 public class GalleryViewAdapter extends RecyclerView.Adapter<GalleryViewAdapter.PhotosHolder> {
 
     Context context;
-    Integer images[] = {R.mipmap.gv1,R.mipmap.gv2,R.mipmap.gv3,R.mipmap.gv4,R.mipmap.gv5,R.mipmap.gv6,R.mipmap.gv7,R.mipmap.gv8,R.mipmap.gv9,R.mipmap.gv10,R.mipmap.gv11,R.mipmap.gv12,R.mipmap.gv13,R.mipmap.gv14,R.mipmap.gv15};
-    public GalleryViewAdapter(Context context) {
+    List<String> list;
+
+
+    public GalleryViewAdapter(Context context,List<String> list) {
         this.context = context;
+        this.list = list;
     }
 
     @NonNull
@@ -35,14 +41,18 @@ public class GalleryViewAdapter extends RecyclerView.Adapter<GalleryViewAdapter.
     @Override
     public void onBindViewHolder(@NonNull final PhotosHolder holder, final int position) {
 
-        Glide.with(context).load(context.getDrawable(images[position])).into(holder.image);
+        final String imageURL = ApiClient.BASE_URL+list.get(position);
+
+        //Image List
+        Glide.with(context).load(Uri.parse(imageURL)).into(holder.image);
+        //Image Viewer
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new StfalconImageViewer.Builder<>(context, images, new ImageLoader<Integer>() {
+                new StfalconImageViewer.Builder<>(context, list, new ImageLoader<String>() {
                     @Override
-                    public void loadImage(ImageView imageView, Integer image) {
-                        Glide.with(context).load(context.getDrawable(image)).into(imageView);
+                    public void loadImage(ImageView imageView, String image) {
+                        Glide.with(context).load(Uri.parse(ApiClient.BASE_URL+image)).into(imageView);
                     }
                 }).withStartPosition(position).show();
             }
@@ -51,7 +61,7 @@ public class GalleryViewAdapter extends RecyclerView.Adapter<GalleryViewAdapter.
 
     @Override
     public int getItemCount() {
-        return images.length;
+        return list.size();
     }
 
     class PhotosHolder extends RecyclerView.ViewHolder{

@@ -1,16 +1,25 @@
 package com.darji.darjifamilyapp.Adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
+import com.darji.darjifamilyapp.Model.ApiClient;
 import com.darji.darjifamilyapp.Model.MatrimonialData;
 import com.darji.darjifamilyapp.R;
 import com.google.gson.Gson;
+import com.stfalcon.imageviewer.StfalconImageViewer;
+import com.stfalcon.imageviewer.loader.ImageLoader;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -19,11 +28,13 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class MatrimonialView extends AppCompatActivity {
-    
+    List<String> s = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,25 +45,27 @@ public class MatrimonialView extends AppCompatActivity {
                 canDob = findViewById(R.id.candidate_dob),
                 canCity = findViewById(R.id.candidate_city);
 
-        TextView fathername = findViewById(R.id.middlename),
-                nativeplace = findViewById(R.id.nativeplace),
-                mothername = findViewById(R.id.mothername),
-                mothernative = findViewById(R.id.mothernative),
-                address = findViewById(R.id.address),
-                brother = findViewById(R.id.brothercount),
-                sister = findViewById(R.id.sistercount),
-                aboutme = findViewById(R.id.aboutme),
-                higerstedu = findViewById(R.id.highesteducation),
-                specialization = findViewById(R.id.specialization),
-                occupationa = findViewById(R.id.occupation),
-                annualincome = findViewById(R.id.annualincome),
-                height = findViewById(R.id.height),
-                weight = findViewById(R.id.weight),
-                age = findViewById(R.id.age),
-                expectation = findViewById(R.id.expectation);
+        ImageView canPhoto = findViewById(R.id.candidateV_photo);
+
+        TextView fathername = findViewById(R.id.mcFather),
+                nativeplace = findViewById(R.id.mcNative),
+                mothername = findViewById(R.id.mcMother),
+                mothernative = findViewById(R.id.mcMotherNative),
+                address = findViewById(R.id.mcAddress),
+                brother = findViewById(R.id.mcBrotherCount),
+                sister = findViewById(R.id.mcSisterCount),
+                aboutme = findViewById(R.id.mcAbout),
+                higerstedu = findViewById(R.id.mcQaulification),
+                specialization = findViewById(R.id.mcSpecialization),
+                occupationa = findViewById(R.id.mcOccupation),
+                annualincome = findViewById(R.id.mcIncome),
+                height = findViewById(R.id.mcHeight),
+                weight = findViewById(R.id.mcWeight),
+                age = findViewById(R.id.mcAge),
+                expectation = findViewById(R.id.mcExpectation);
 
         Gson gson = new Gson();
-        MatrimonialData data = gson.fromJson(getIntent().getStringExtra("data"),MatrimonialData.class);
+        final MatrimonialData data = gson.fromJson(getIntent().getStringExtra("data"),MatrimonialData.class);
 
         canName.setText(data.getFirstName()+" "+data.getMiddleName()+" "+data.getLastName());
         canEmail.setText(data.getEmailId());
@@ -69,8 +82,10 @@ public class MatrimonialView extends AppCompatActivity {
         }
         canDob.setText(dateStr);
 
-
-
+        final Uri image = Uri.parse(ApiClient.BASE_URL+"Uploads/MatrimonialCandidates/"+data.getPhoto());
+        Glide.with(this)
+                .load(image)
+                .into(canPhoto);
         fathername.setText(data.getMiddleName());
         nativeplace.setText(data.getNativePlace());
         mothername.setText(data.getMotherName());
@@ -93,17 +108,28 @@ public class MatrimonialView extends AppCompatActivity {
 //        bdate = testDate(data.getBirthDte());
         age.setText(bdate);
 
-
+        s.add("holder");
+        canPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new StfalconImageViewer.Builder<>(MatrimonialView.this, s , new ImageLoader<String>() {
+                    @Override
+                    public void loadImage(ImageView imageView, String img) {
+                        Glide.with(MatrimonialView.this).load(image).into(imageView);
+                    }
+                }).show();
+            }
+        });
     }
 
-
+/*
     private String testDate(String finalDate){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate today = LocalDate.now();
         LocalDate birthday = LocalDate.parse(finalDate, formatter);
         Period p = Period.between(birthday, today);
         return p.getYears() + " years, " + p.getMonths() + " months";
-    }
+    }*/
 
     private String getAge(int year, int month, int day){
         Calendar dob = Calendar.getInstance();
@@ -117,4 +143,9 @@ public class MatrimonialView extends AppCompatActivity {
         return ageString;
     }
 
+    @Override
+    public Intent getParentActivityIntent() {
+        finish();
+        return getIntent();
+    }
 }

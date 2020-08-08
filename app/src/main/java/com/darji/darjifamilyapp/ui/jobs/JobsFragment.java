@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -17,11 +19,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.darji.darjifamilyapp.Adapter.BulletinAdapter;
 import com.darji.darjifamilyapp.Adapter.JobsAdapter;
 import com.darji.darjifamilyapp.Model.ApiClient;
 import com.darji.darjifamilyapp.Model.ApiInterface;
-import com.darji.darjifamilyapp.Model.BulletinData;
 import com.darji.darjifamilyapp.Model.JobsData;
 import com.darji.darjifamilyapp.R;
 
@@ -38,8 +38,14 @@ public class JobsFragment extends Fragment {
     List<JobsData> joblist;
 
     ConstraintLayout expandableView;
-    Button arrowBtn;
+    View controller;
+    ImageView arrow;
     CardView cardView;
+
+    //Filtering
+    Button fSearch;
+    Spinner fSector;
+    EditText fTitle,fLocation,fSkill,fSalFrom,fSalTo;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -52,21 +58,22 @@ public class JobsFragment extends Fragment {
         jobs.setHasFixedSize(true);
         jobs.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        expandableView = root.findViewById(R.id.expandableView);
-        arrowBtn = root.findViewById(R.id.arrowBtn);
-        cardView = root.findViewById(R.id.cardView);
+        expandableView = root.findViewById(R.id.jobExpandableView);
+        controller = root.findViewById(R.id.jobfilter);
+        arrow = root.findViewById(R.id.jobSearchArrow);
+        cardView = root.findViewById(R.id.jobCardView);
 
-        arrowBtn.setOnClickListener(new View.OnClickListener() {
+        controller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (expandableView.getVisibility()==View.GONE){
                     TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
                     expandableView.setVisibility(View.VISIBLE);
-                    arrowBtn.setBackgroundResource(R.drawable.drawer_list_selector);
+                    arrow.setImageResource(R.mipmap.collapse);
                 } else {
                     TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
                     expandableView.setVisibility(View.GONE);
-                    arrowBtn.setBackgroundResource(R.drawable.drawer_list_selector);
+                    arrow.setImageResource(R.mipmap.expand);
                 }
             }
         });
@@ -82,7 +89,7 @@ public class JobsFragment extends Fragment {
                 if(joblist!=null) {
                     jobsAdapter = new JobsAdapter(getActivity(), joblist);
                     jobs.setAdapter(jobsAdapter);
-                    jobCount.setText("" + jobsAdapter.getItemCount());
+                    setJobCount();
                 }
             }
             @Override
@@ -91,6 +98,38 @@ public class JobsFragment extends Fragment {
             }
         });
 
+
+        fTitle = root.findViewById(R.id.jobsearch_title);
+        fLocation = root.findViewById(R.id.jobsearch_location);
+        fSkill = root.findViewById(R.id.jobsearch_skills);
+        fSector = root.findViewById(R.id.jobsearch_sector);
+        fSalFrom = root.findViewById(R.id.jobsearch_salarayfrom);
+        fSalTo = root.findViewById(R.id.jobsearch_salarayto);
+        fSearch = root.findViewById(R.id.job_search_button);
+        fSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(jobsAdapter!=null)
+                {
+                    jobsAdapter.setFilters(
+                            fTitle.getText().toString(),
+                            fLocation.getText().toString(),
+                            fSkill.getText().toString(),
+                            fSector.getSelectedItem().toString(),
+                            fSalFrom.getText().toString(),
+                            fSalTo.getText().toString());
+                    jobsAdapter.notifyDataSetChanged();
+                    setJobCount();
+                }
+            }
+        });
+
+
         return root;
+    }
+
+    private void setJobCount()
+    {
+        jobCount.setText("" + jobsAdapter.getItemCount());
     }
 }
