@@ -34,32 +34,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Security Protocol///////////////////////////////////////////////////////////////////////////////////////
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Validate").child("IsAppEnabled");
-        // Read from the database
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
-                if (!Boolean.parseBoolean(value))
-                {
-                    TextView t = null;
-                    t.setText("Payment Apvanu Rakho");
-                }
-                main();
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Toast.makeText(getApplicationContext(),"Can not verify the application",Toast.LENGTH_LONG).show();
-                MainActivity.this.finish();
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    }
-
-    private void main()
-    {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home,R.id.nav_aboutus,R.id.nav_activities,R.id.nav_matrimonial,R.id.nav_jobs,
-                R.id.nav_bulletin,R.id.nav_downloads,R.id.nav_gallery,R.id.nav_donate,R.id.nav_contactus)
+                R.id.nav_bulletin,R.id.nav_downloads,R.id.nav_gallery,R.id.nav_donate,R.id.nav_contactus,R.id.nav_vasti)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

@@ -44,6 +44,10 @@
             android:id="@+id/nav_contactus"
             android:icon="@mipmap/contact"
             android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_vasti"
+            android:icon="@mipmap/vasti"
+            android:title="Personal Details" />
     </group>
 <!--
     <item android:title="Communicate">

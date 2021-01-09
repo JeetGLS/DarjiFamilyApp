@@ -79,7 +79,12 @@ public class AdsSwipeAdapter extends PagerAdapter {
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(data.getWebsite()));
-                context.startActivity(i);
+                try {
+                    context.startActivity(i);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
         });
         container.addView(itemView);
