@@ -9,6 +9,10 @@
             android:icon="@mipmap/home"
             android:title="Home" />
         <item
+            android:id="@+id/nav_vasti"
+            android:icon="@mipmap/vasti"
+            android:title="Personal Details" />
+        <item
             android:id="@+id/nav_aboutus"
             android:icon="@mipmap/about"
             android:title="About Us" />
@@ -44,10 +48,6 @@
             android:id="@+id/nav_contactus"
             android:icon="@mipmap/contact"
             android:title="Contact Us" />
-        <item
-            android:id="@+id/nav_vasti"
-            android:icon="@mipmap/vasti"
-            android:title="Personal Details" />
     </group>
 <!--
     <item android:title="Communicate">

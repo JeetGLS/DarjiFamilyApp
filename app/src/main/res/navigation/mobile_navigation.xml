@@ -11,6 +11,11 @@
         android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/nav_vasti"
+        android:name="com.darji.darjifamilyapp.ui.vasti.VastiFragment"
+        android:label="Personal Details"
+        tools:layout="@layout/fragment_vasti" />
+    <fragment
         android:id="@+id/nav_aboutus"
         android:name="com.darji.darjifamilyapp.ui.about.AboutFragment"
         android:label="About Us"
@@ -55,10 +60,5 @@
         android:name="com.darji.darjifamilyapp.ui.contact.ContactFragment"
         android:label="Contact Us"
         tools:layout="@layout/fragment_contact" />
-    <fragment
-        android:id="@+id/nav_vasti"
-        android:name="com.darji.darjifamilyapp.ui.vasti.VastiFragment"
-        android:label="Personal Details"
-        tools:layout="@layout/fragment_vasti" />
 
 </navigation>
