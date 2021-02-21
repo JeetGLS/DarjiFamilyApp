@@ -41,10 +41,6 @@
             android:icon="@mipmap/gallery"
             android:title="Gallery" />
         <item
-            android:id="@+id/nav_donate"
-            android:icon="@mipmap/donate"
-            android:title="Donate" />
-        <item
             android:id="@+id/nav_contactus"
             android:icon="@mipmap/contact"
             android:title="Contact Us" />

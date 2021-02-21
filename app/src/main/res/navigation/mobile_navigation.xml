@@ -51,11 +51,6 @@
         android:label="Gallery"
         tools:layout="@layout/fragment_gallery" />
     <fragment
-        android:id="@+id/nav_donate"
-        android:name="com.darji.darjifamilyapp.ui.donate.DonateFragment"
-        android:label="Donate"
-        tools:layout="@layout/fragment_donate" />
-    <fragment
         android:id="@+id/nav_contactus"
         android:name="com.darji.darjifamilyapp.ui.contact.ContactFragment"
         android:label="Contact Us"
